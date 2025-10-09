@@ -12,16 +12,16 @@ export default function Home() {
 
   // 各ボタンの遷移先パスとラベル
   const buttonConfigs = [
-    { label: "電卓アプリ", path: "/calc" },
-    { label: "パスワード自動生成ツール", path: "/password" },
-    { label: "TODOリストアプリ", path: "/todo" },
-    { label: "文字数・単語数カウンター", path: "/counter" },
-    { label: "BMI計算ツール", path: "/bmi" },
-    { label: "未定", path: "/unknown" },
-    { label: "映画・書籍レビューサイト", path: "/review" },
-    { label: "ダークモード切り替え機能付きランディングページ", path: "/landing" },
-    { label: "天気情報アプリ", path: "/weather" },
-    { label: "通貨換算ツール", path: "/currency" },
+    { label: "001-電卓アプリ", path: "/001-calc" },
+    { label: "002-パスワード自動生成ツール", path: "/002-password" },
+    { label: "003-おみくじアプリ", path: "/003-omikuji" },
+    { label: "004-文字数・単語数カウンター", path: "/004-counter" },
+    { label: "005-BMI計算ツール", path: "/005-bmi" },
+    { label: "006-TODOリストアプリ", path: "/006-todo" },
+    { label: "007-映画・書籍レビューサイト", path: "/007-review" },
+    { label: "008-ダークモード切り替え機能付きランディングページ", path: "/008-landing" },
+    { label: "009-天気情報アプリ", path: "/009-weather" },
+    { label: "010-通貨換算ツール", path: "/010-currency" },
   ];
 
   return (

@@ -8,7 +8,7 @@ type ItemButtonProps = {
 export default function ItemButton({ item, onClick }: ItemButtonProps) {
   return (
     <button style={{ width: "100%" }} onClick={() => onClick(item)}>
-      Go to Item {item}
+      {item}
     </button>
   );
 }

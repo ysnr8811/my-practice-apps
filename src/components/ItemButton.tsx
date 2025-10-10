@@ -23,7 +23,6 @@ export default function ItemButton({ item, onClick }: ItemButtonProps) {
     <button
       // ボタンのスタイル定義
       style={{
-        width: "100%", // 横幅いっぱい
         transition: "transform 0.15s, background 0.15s, color 0.15s", // アニメーション
         transform: isClicked ? "scale(0.95)" : "scale(1)", // クリック時に縮小
         background: isClicked ? "#333" : "#000", // ボタンの中身：黒

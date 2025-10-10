@@ -4,6 +4,7 @@
 // Next.jsから画面遷移のためのuseRouterフックをインポートします。
 import { useRouter } from "next/navigation";
 import ItemButton from "../components/ItemButton";
+import CommonLayout from "@/components/CommonLayout";
 
 // これがホームページのメインコンポーネントです。
 export default function Home() {
@@ -25,8 +26,7 @@ export default function Home() {
   ];
 
   return (
-    // インラインスタイルを使って、このdivとその子要素のテキストコンテンツを中央揃えにします。
-    <div style={{ textAlign: "center" }}>
+      <CommonLayout>
       <h1>Welcome to my Next.js App</h1>
 
       {/* ボタンを5列2行のグリッドで表示するためのコンテナ */}
@@ -43,6 +43,6 @@ export default function Home() {
           <ItemButton key={idx} item={config.label} onClick={() => router.push(config.path)} />
         ))}
       </div>
-    </div>
+      </CommonLayout>
   );
 }

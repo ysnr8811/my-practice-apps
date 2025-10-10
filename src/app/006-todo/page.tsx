@@ -1,11 +1,16 @@
+"use client";
 import CommonLayout from "../../components/CommonLayout";
+import { useSearchParams } from "next/navigation";
 
 export default function TodoPage() {
+  const searchParams = useSearchParams();
+  const label = searchParams.get("label") || "006-TODOリストアプリ";
+
   return (
     <CommonLayout>
       <div style={{ textAlign: "center", marginTop: "40px" }}>
-        <h2>006-TODOリストアプリ</h2>
-        <p>ここは006-TODOリストアプリの仮ページです。</p>
+        <h2>{label}</h2>
+        <p>ここは{label}の仮ページです。</p>
       </div>
     </CommonLayout>
   );

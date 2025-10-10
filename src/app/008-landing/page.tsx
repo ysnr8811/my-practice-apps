@@ -1,11 +1,16 @@
+"use client";
 import CommonLayout from "../../components/CommonLayout";
+import { useSearchParams } from "next/navigation";
 
 export default function LandingPage() {
+  const searchParams = useSearchParams();
+  const label = searchParams.get("label") || "008-ダークモード切り替え機能付きランディングページ";
+
   return (
     <CommonLayout>
       <div style={{ textAlign: "center", marginTop: "40px" }}>
-        <h2>008-ダークモード切り替え機能付きランディングページ</h2>
-        <p>ここは008-ダークモード切り替え機能付きランディングページの仮ページです。</p>
+        <h2>{label}</h2>
+        <p>ここは{label}の仮ページです。</p>
       </div>
     </CommonLayout>
   );

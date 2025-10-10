@@ -40,7 +40,11 @@ export default function Home() {
         width: '100%'
       }}>
         {buttonConfigs.map((config, idx) => (
-          <ItemButton key={idx} item={config.label} onClick={() => router.push(config.path)} />
+          <ItemButton
+            key={idx}
+            item={config.label}
+            onClick={() => router.push(`${config.path}?label=${encodeURIComponent(config.label)}`)}
+          />
         ))}
       </div>
       </CommonLayout>

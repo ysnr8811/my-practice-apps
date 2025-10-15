@@ -4,8 +4,8 @@ import React, { useState } from "react";
 // item: ボタンに表示するテキスト
 // onClick: ボタン押下時のコールバック
 type ItemButtonProps = {
-  item: number;
-  onClick: (item: number) => void;
+    item: string;
+    onClick: (item: string) => void;
 };
 
 export default function ItemButton({ item, onClick }: ItemButtonProps) {

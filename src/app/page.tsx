@@ -1,18 +1,26 @@
 // useRouterのようなクライアントサイドの機能を使うために必要なディレクティブです。
 "use client";
 
-// Next.jsから画面遷移のためのuseRouterフックをインポートします。
+// 必要なモジュールやコンポーネントをインポートします。
 import { useRouter } from "next/navigation";
+import React from "react"; // React本体（JSXとCSSProperties型のために必要）
 import ItemButton from "../components/ItemButton";
 import CommonLayout from "@/components/CommonLayout";
+
+// ボタンの設定オブジェクトの型を定義します。
+// これにより、各ボタンが必ずstring型のlabelとpathを持つことが保証されます。
+type ButtonConfig = {
+  label: string;
+  path: string;
+};
 
 // これがホームページのメインコンポーネントです。
 export default function Home() {
   // 画面遷移を扱うためにルーターオブジェクトを取得します。
   const router = useRouter();
 
-  // 各ボタンの遷移先パスとラベル
-  const buttonConfigs = [
+  // 各ボタンの設定を、上で定義したButtonConfig型の配列として定義します。
+  const buttonConfigs: ButtonConfig[] = [
     { label: "001-電卓アプリ", path: "/001-calc" },
     { label: "002-パスワード自動生成ツール", path: "/002-password" },
     { label: "003-おみくじアプリ", path: "/003-omikuji" },
@@ -25,28 +33,34 @@ export default function Home() {
     { label: "010-通貨換算ツール", path: "/010-currency" },
   ];
 
+  // ボタンを配置するグリッドのスタイルを定義します。
+  // React.CSSProperties型を適用することで、CSSプロパティのタイポなどを防ぎます。
+  const gridStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(5, 1fr)', // 5列のグリッド
+    gridTemplateRows: 'repeat(2, 1fr)',    // 2行のグリッド
+    gap: '10px', // グリッドアイテム間の隙間
+    maxWidth: '100vw',
+    margin: '0 auto',
+    width: '100%'
+  };
+
   return (
       <CommonLayout>
-      <h1>Welcome to my Next.js App</h1>
+        <h1>Welcome to my Next.js App</h1>
 
-      {/* ボタンを5列2行のグリッドで表示するためのコンテナ */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
-        gridTemplateRows: 'repeat(2, 1fr)',
-        gap: '10px',
-        maxWidth: '100vw',
-        margin: '0 auto',
-        width: '100%'
-      }}>
-        {buttonConfigs.map((config, idx) => (
-          <ItemButton
-            key={idx}
-            item={config.label}
-            onClick={() => router.push(`${config.path}?label=${encodeURIComponent(config.label)}`)}
-          />
-        ))}
-      </div>
+        {/* ボタンをグリッドで表示するためのコンテナ */}
+        <div style={gridStyle}>
+          {/* buttonConfigs配列をループして、各設定に対応するボタンを生成します。 */}
+          {buttonConfigs.map((config, idx) => (
+            <ItemButton
+              key={idx} // Reactがリストの各要素を識別するためのキー
+              item={config.label}
+              // ボタンクリックで、設定されたパスにクエリパラメータを付けて画面遷移します。
+              onClick={() => router.push(`${config.path}?label=${encodeURIComponent(config.label)}`)}
+            />
+          ))}
+        </div>
       </CommonLayout>
   );
 }

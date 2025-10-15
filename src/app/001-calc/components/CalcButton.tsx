@@ -26,12 +26,13 @@ const CalcButton: React.FC<ButtonProps> = ({ label, onClick, className }) => {
       // ``（バッククォート）で囲むことで、文字列内に変数を埋め込めます（テンプレートリテラル）。
       // bg-gray-200: 背景を灰色に
       // hover:bg-gray-300: マウスカーソルが乗った時に背景を少し濃い灰色に
+      // text-black: 文字色を黒に
       // text-2xl: 文字サイズを大きめに
       // font-bold: 文字を太字に
       // py-4: 上下の内側余白を4の単位で設定
       // rounded-lg: 角を丸くする
       // ${className}: 親コンポーネントから渡された追加のクラスをここに適用します。
-      className={`bg-gray-200 hover:bg-gray-300 text-2xl font-bold py-4 rounded-lg ${className}`}
+      className={`bg-gray-200 hover:bg-gray-300 text-black text-2xl font-bold py-4 rounded-lg ${className}`}
     >
       {/* ボタンのラベル（数字や記号）を表示します。 */}
       {label}

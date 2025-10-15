@@ -1,4 +1,4 @@
-'''// ReactからSuspenseコンポーネントをインポートします。
+// ReactからSuspenseコンポーネントをインポートします。
 // Suspenseは、子コンポーネントの読み込みが完了するまでフォールバックUIを表示するために使います。
 import { Suspense } from 'react';
 
@@ -23,4 +23,3 @@ export default function CalcPage() {
     </CommonLayout>
   );
 }
-'''

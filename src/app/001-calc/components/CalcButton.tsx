@@ -1,10 +1,11 @@
-// このファイルはクライアントサイドで動作することを示す宣言です。
 'use client';
 
 // Reactライブラリをインポートします。
 import React from 'react';
 
-// CalcButtonコンポーネントが受け取るprops（プロパティ）の型を定義します。
+/**
+ * CalcButtonコンポーネントが受け取るprops（プロパティ）の型を定義します。
+ */
 type ButtonProps = {
   // ボタンに表示されるテキスト（例: '1', '+'）
   label: string;
@@ -14,8 +15,10 @@ type ButtonProps = {
   className?: string;
 };
 
-// CalcButtonコンポーネントを定義します。
-// propsとして label, onClick, className を受け取ります。
+/**
+ * CalcButtonコンポーネントを定義します。
+ * propsとして label, onClick, className を受け取ります。
+ */
 const CalcButton: React.FC<ButtonProps> = ({ label, onClick, className }) => {
   // button要素を返します。
   return (

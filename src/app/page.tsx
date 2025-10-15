@@ -7,19 +7,27 @@ import React from "react"; // React本体（JSXとCSSProperties型のために�
 import ItemButton from "../components/ItemButton";
 import CommonLayout from "@/components/CommonLayout";
 
-// ボタンの設定オブジェクトの型を定義します。
-// これにより、各ボタンが必ずstring型のlabelとpathを持つことが保証されます。
+/**
+ * ボタンの設定オブジェクトの型を定義します。
+ * これにより、各ボタンが必ずstring型のlabelとpathを持つことが保証されます。
+ */
 type ButtonConfig = {
   label: string;
   path: string;
 };
 
-// これがホームページのメインコンポーネントです。
+/**
+ * これがホームページのメインコンポーネントです。
+ */
 export default function Home() {
-  // 画面遷移を扱うためにルーターオブジェクトを取得します。
+    /**
+     * 画面遷移を扱うためにルーターオブジェクトを取得します。
+     */
   const router = useRouter();
 
-  // 各ボタンの設定を、上で定義したButtonConfig型の配列として定義します。
+    /**
+     * 各ボタンの設定を、上で定義したButtonConfig型の配列として定義します。
+     */
   const buttonConfigs: ButtonConfig[] = [
     { label: "001-電卓アプリ", path: "/001-calc" },
     { label: "002-パスワード自動生成ツール", path: "/002-password" },
@@ -33,8 +41,10 @@ export default function Home() {
     { label: "010-通貨換算ツール", path: "/010-currency" },
   ];
 
-  // ボタンを配置するグリッドのスタイルを定義します。
-  // React.CSSProperties型を適用することで、CSSプロパティのタイポなどを防ぎます。
+    /**
+     * ボタンを配置するグリッドのスタイルを定義します。
+     * React.CSSProperties型を適用することで、CSSプロパティのタイポなどを防ぎます。
+     */
   const gridStyle: React.CSSProperties = {
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)', // 5列のグリッド

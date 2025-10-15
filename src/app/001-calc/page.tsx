@@ -1,13 +1,19 @@
-// ReactからSuspenseコンポーネントをインポートします。
-// Suspenseは、子コンポーネントの読み込みが完了するまでフォールバックUIを表示するために使います。
+/**
+ * ReactからSuspenseコンポーネントをインポートします。
+ * Suspenseは、子コンポーネントの読み込みが完了するまでフォールバックUIを表示するために使います。
+ */
 import { Suspense } from 'react';
 
-// 先ほど作成した電卓のUIコンポーネントをインポートします。
+/**
+ * 先ほど作成した電卓のUIコンポーネントをインポートします。
+ */
 import CalculatorUI from './components/CalculatorUI';
 import CommonLayout from '../../components/CommonLayout';
 
-// 電卓ページのメインコンポーネントです。
-// このコンポーネント自体はサーバーサイドでレンダリングされます。
+/**
+ * 電卓ページのメインコンポーネントです。
+ * このコンポーネント自体はサーバーサイドでレンダリングされます。
+ */
 export default function CalcPage() {
   return (
     <CommonLayout>

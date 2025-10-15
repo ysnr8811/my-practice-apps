@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-// ItemButtonコンポーネントのprops型定義
-// item: ボタンに表示するテキスト
-// onClick: ボタン押下時のコールバック
+/**
+ * ItemButtonコンポーネントのprops型定義
+ * item: ボタンに表示するテキスト
+ * onClick: ボタン押下時のコールバック
+ */
 type ItemButtonProps = {
     item: string;
     onClick: (item: string) => void;

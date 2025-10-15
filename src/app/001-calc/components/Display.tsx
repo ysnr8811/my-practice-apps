@@ -5,15 +5,19 @@
 // Reactライブラリをインポートします。JSXを使うために必要です。
 import React from 'react';
 
-// Displayコンポーネントが受け取るprops（プロパティ）の型を定義します。
-// 'value'という名前のプロパティをstring型（文字列）として受け取ります。
+/**
+ * Displayコンポーネントが受け取るprops（プロパティ）の型を定義します。
+ * 'value'という名前のプロパティをstring型（文字列）として受け取ります。
+ */
 type DisplayProps = {
   value: string;
 };
 
-// Displayコンポーネントを定義します。
-// React.FCは、これがReactの関数コンポーネントであることを示します。
-// propsとしてvalueを受け取ります。
+/**
+ * Displayコンポーネントを定義します。
+ * React.FCは、これがReactの関数コンポーネントであることを示します。
+ * propsとしてvalueを受け取ります。
+ */
 const Display: React.FC<DisplayProps> = ({ value }) => {
   // JSXを返します。これが画面に表示される内容です。
   return (

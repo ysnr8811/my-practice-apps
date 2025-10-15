@@ -1,14 +1,14 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 
-// 共通レイアウトコンポーネント
-// このコンポーネントは全アプリ画面で共通のデザイン（ドロワー＋メイン領域）を提供します
-// children: 各ページのコンテンツ
-
-// ドロワー（サイドメニュー）の幅
+/**
+ * ドロワー（サイドメニュー）の幅
+ */
 const drawerWidth = 220;
 
-// ドロワーのスタイル定義
+/**
+ * ドロワーのスタイル定義
+ */
 const drawerStyle: React.CSSProperties = {
   position: "fixed", // 画面左に固定表示
   top: 0,
@@ -26,7 +26,9 @@ const drawerStyle: React.CSSProperties = {
   gap: "16px" // 要素間の隙間
 };
 
-// メインコンテンツ領域のスタイル定義
+/**
+ * メインコンテンツ領域のスタイル定義
+ */
 const contentStyle: React.CSSProperties = {
   marginLeft: drawerWidth, // ドロワー分だけ右にずらす
   padding: "32px 24px", // 内側余白
@@ -34,11 +36,15 @@ const contentStyle: React.CSSProperties = {
   background: "#000" // 背景色を黒に変更
 };
 
+/**
+ * 共通レイアウトコンポーネント
+ * このコンポーネントは全アプリ画面で共通のデザイン（ドロワー＋メイン領域）を提供します
+ * children: 各ページのコンテンツ
+ */
 export default function CommonLayout({ children }: { children: ReactNode }) {
-  // ドロワーの開閉状態（今は常に表示）
-  // 必要ならuseStateで開閉可能にできます
-
-  // レイアウト全体をdivでラップ
+    /**
+     * レイアウト全体をdivでラップ
+     */
   return (
     <div>
       {/* ドロワー（サイドメニュー） */}

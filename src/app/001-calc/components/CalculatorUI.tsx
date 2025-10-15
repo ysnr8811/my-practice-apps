@@ -7,11 +7,18 @@ import Display from './Display'; // 計算結果を表示するディスプレ�
 import CalcButton from './CalcButton'; // 電卓のボタンコンポーネント
 import { useState } from 'react'; // コンポーネントの状態を管理するためのReactフック
 
-// 電卓UIのメインコンポーネント
+/**
+ * 電卓UIのメインコンポーネント
+ */
 export default function CalculatorUI() {
-  // URLのクエリパラメータを取得します (例: /?label=電卓)
+    /**
+     * URLのクエリパラメータを取得します (例: /?label=電卓)
+     */
   const searchParams = useSearchParams();
-  // 'label'というクエリパラメータの値を取得し、なければデフォルト値を設定します。
+
+  /**
+     * 'label'というクエリパラメータの値を取得し、なければデフォルト値を設定します。
+     */
   const label = searchParams.get('label') || '001-電卓アプリ';
 
   // --- 電卓の状態を管理する変数 --- (useStateフック)
@@ -20,7 +27,9 @@ export default function CalculatorUI() {
   const [operator, setOperator] = useState<string | null>(null);
   const [waitingForSecondOperand, setWaitingForSecondOperand] = useState(false);
 
-  // --- 電卓のロジックを定義する関数 ---
+    /**
+     * --- 電卓のロジックを定義する関数 ---
+     */
   const inputDigit = (digit: string) => {
     if (waitingForSecondOperand) {
       setDisplayValue(digit);

@@ -1,3 +1,21 @@
+# 本番環境
+本番環境 [https://my-practice-apps.vercel.app/](https://my-practice-apps.vercel.app/)
+
+# ローカル開発環境
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+実行後に開く [http://localhost:3000](http://localhost:3000)
+
+---
+# 以下は作成時の記載なので無視する
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

@@ -17,12 +17,6 @@ import CommonLayout from '../../components/CommonLayout';
 export default function CalcPage() {
     return (
         <CommonLayout>
-            {/*
-        SuspenseコンポーネントでCalculatorUIをラップします。
-        CalculatorUIは`useSearchParams`フックを使っているため、クライアントサイドでのレンダリングが必要です。
-        Suspenseは、クライアントでのレンダリングが完了するまでの間、`fallback`に指定されたUI（ここでは「読み込み中...」）を表示します。
-        これにより、Next.jsのビルドエラーを防ぐことができます。
-      */}
             <Suspense fallback={<div>読み込み中...</div>}>
                 <CalculatorUI/>
             </Suspense>

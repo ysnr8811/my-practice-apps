@@ -1,9 +1,27 @@
-interface TypeSelectBoxProps {
-    name?: string,
-    options?: ({ value: string; label: string })[]
+'use client';
+
+import React from 'react';
+
+/**
+ * ドロップダウンの各選択肢の型を定義します
+ */
+interface SelectOption {
+    value: string;
+    label: string;
 }
 
-export function TypeSelectBox({name, options}: TypeSelectBoxProps) {
+/**
+ * このコンポーネントが受け取るpropsの型を定義します
+ */
+interface TypeSelectBoxProps {
+    name: string; // ドロップダウンの左に表示するラベル名
+    options: SelectOption[]; // 表示する選択肢の配列
+}
+
+/**
+ * 汎用的なセレクトボックス（ドロップダウン）コンポーネント
+ */
+export const TypeSelectBox: React.FC<TypeSelectBoxProps> = ({name, options}) => {
 
     return (
         <div>
@@ -30,7 +48,7 @@ export function TypeSelectBox({name, options}: TypeSelectBoxProps) {
                 // 選択肢リストがない場合、nameプロパティを使ってチェックボックスなどをレンダリング
                 <label>
 
-                    <input type="checkbox" name={name} />
+                    <input type="checkbox" name={name}/>
                     {name}
 
                 </label>

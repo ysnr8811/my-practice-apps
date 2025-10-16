@@ -1,6 +1,7 @@
 // このファイルはクライアントサイドで動作することを示す宣言です。
 'use client';
 
+
 // 必要なコンポーネントやフックをインポートします。
 import {useSearchParams} from 'next/navigation'; // URLのクエリパラメータ（例: ?label=）を取得するためのNext.jsフックをインポート
 import Display from './Display'; // 計算結果や現在の入力を表示するUIコンポーネントをインポート

@@ -2,10 +2,10 @@
 'use client';
 
 // 必要なコンポーネントやフックをインポートします。
-import { useSearchParams } from 'next/navigation'; // URLのクエリパラメータ（例: ?label=）を取得するためのNext.jsフックをインポート
+import {useSearchParams} from 'next/navigation'; // URLのクエリパラメータ（例: ?label=）を取得するためのNext.jsフックをインポート
 import Display from './Display'; // 計算結果や現在の入力を表示するUIコンポーネントをインポート
 import CalcButton from './CalcButton'; // 数字、演算子、クリアなどの電卓ボタンUIコンポーネントをインポート
-import { useState } from 'react'; // コンポーネントの状態（データ）を保持・更新するためのReactフックをインポート
+import {useState} from 'react'; // コンポーネントの状態（データ）を保持・更新するためのReactフックをインポート
 
 /**
  * 電卓UIのメインコンポーネント。電卓の機能（ロジックと状態管理）を実装する。
@@ -122,14 +122,18 @@ export default function CalculatorUI() {
      */
     const calculate = (first: number, second: number, op: string): number => {
         switch (op) {
-            case '+': return first + second;
-            case '-': return first - second;
-            case '×': return first * second;
+            case '+':
+                return first + second;
+            case '-':
+                return first - second;
+            case '×':
+                return first * second;
             case '÷':
                 // 0除算のチェック
                 if (second === 0) return NaN;
                 return first / second;
-            default: return second;
+            default:
+                return second;
         }
     };
 
@@ -139,36 +143,36 @@ export default function CalculatorUI() {
         <div className="w-full max-w-xs mx-auto mt-10">
             <h2 className="text-center text-2xl mb-4">{label}</h2> {/* URLから取得したタイトルを表示 */}
             <div className="border rounded-lg shadow-lg">
-                <Display value={displayValue} /> {/* 現在の表示値（状態: displayValue）を渡す */}
+                <Display value={displayValue}/> {/* 現在の表示値（状態: displayValue）を渡す */}
                 {/* ボタンを4列のグリッドで配置するコンテナ */}
                 <div className="grid grid-cols-4 gap-px bg-gray-400 rounded-b-lg overflow-hidden">
                     {/* クリアボタン（C）：3列分の幅を占める */}
-                    <CalcButton onClick={clearCalculator} label="C" className="col-span-3 bg-gray-300" />
+                    <CalcButton onClick={clearCalculator} label="C" className="col-span-3 bg-gray-300"/>
                     {/* 演算子ボタン */}
-                    <CalcButton onClick={() => performOperation('÷')} label="÷" className="bg-orange-400 text-white" />
+                    <CalcButton onClick={() => performOperation('÷')} label="÷" className="bg-orange-400 text-white"/>
 
                     {/* 数字ボタン */}
-                    <CalcButton onClick={() => inputDigit('7')} label="7" />
-                    <CalcButton onClick={() => inputDigit('8')} label="8" />
-                    <CalcButton onClick={() => inputDigit('9')} label="9" />
-                    <CalcButton onClick={() => performOperation('×')} label="×" className="bg-orange-400 text-white" />
+                    <CalcButton onClick={() => inputDigit('7')} label="7"/>
+                    <CalcButton onClick={() => inputDigit('8')} label="8"/>
+                    <CalcButton onClick={() => inputDigit('9')} label="9"/>
+                    <CalcButton onClick={() => performOperation('×')} label="×" className="bg-orange-400 text-white"/>
 
                     {/* 数字ボタン */}
-                    <CalcButton onClick={() => inputDigit('4')} label="4" />
-                    <CalcButton onClick={() => inputDigit('5')} label="5" />
-                    <CalcButton onClick={() => inputDigit('6')} label="6" />
-                    <CalcButton onClick={() => performOperation('-')} label="-" className="bg-orange-400 text-white" />
+                    <CalcButton onClick={() => inputDigit('4')} label="4"/>
+                    <CalcButton onClick={() => inputDigit('5')} label="5"/>
+                    <CalcButton onClick={() => inputDigit('6')} label="6"/>
+                    <CalcButton onClick={() => performOperation('-')} label="-" className="bg-orange-400 text-white"/>
 
                     {/* 数字ボタン */}
-                    <CalcButton onClick={() => inputDigit('1')} label="1" />
-                    <CalcButton onClick={() => inputDigit('2')} label="2" />
-                    <CalcButton onClick={() => inputDigit('3')} label="3" />
-                    <CalcButton onClick={() => performOperation('+')} label="+" className="bg-orange-400 text-white" />
+                    <CalcButton onClick={() => inputDigit('1')} label="1"/>
+                    <CalcButton onClick={() => inputDigit('2')} label="2"/>
+                    <CalcButton onClick={() => inputDigit('3')} label="3"/>
+                    <CalcButton onClick={() => performOperation('+')} label="+" className="bg-orange-400 text-white"/>
 
                     {/* 数字ボタン '0'（2列分の幅を占める）、小数点ボタン、イコールボタン */}
-                    <CalcButton onClick={() => inputDigit('0')} label="0" className="col-span-2" />
-                    <CalcButton onClick={inputDecimal} label="." />
-                    <CalcButton onClick={() => performOperation('=')} label="=" className="bg-orange-400 text-white" />
+                    <CalcButton onClick={() => inputDigit('0')} label="0" className="col-span-2"/>
+                    <CalcButton onClick={inputDecimal} label="."/>
+                    <CalcButton onClick={() => performOperation('=')} label="=" className="bg-orange-400 text-white"/>
                 </div>
             </div>
         </div>

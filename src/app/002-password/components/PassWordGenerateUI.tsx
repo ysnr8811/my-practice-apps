@@ -1,50 +1,53 @@
 // このコンポーネントがクライアントサイドで動作することを示します。
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import {useSearchParams} from 'next/navigation';
 import ItemButton from "@/components/ItemButton";
-import { TypeSelectBox } from "@/app/002-password/components/TypeSelectBox";
 import PassWordOutputLabel from "@/app/002-password/components/PassWordOutputLabel";
+import {JSX, useState} from 'react'; // 状態管理のためにuseStateをインポート
 
-// このコンポーネントはpropsを受け取らないように変更します。
-export default function PassWordGenerateUI() {
-    // useSearchParamsフックを使って、URLから直接クエリパラメータを取得します。
+/**
+ * 簡易的なランダムなパスワード生成関数
+ * 実際の実装では、選択されたオプションに基づいた複雑なロジックが必要です。
+ * @returns 10桁のランダムな文字列
+ */
+const generatePassword = (): string => {
+    const chars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+
+    let password: string = '';
+
+    for (let i = 0; i < 20; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return password;
+};
+
+export default function PassWordGenerateUI(): JSX.Element {
+    /**
+     * パスワードの文字列を保持するための状態を定義
+     */
+    const [generatedPassword, setGeneratedPassword] = useState('');
+
+    /**
+     * URLパラメーターを取得するためのフック
+     */
     const searchParams = useSearchParams();
-    const label = searchParams.get("label") || "002-パスワード自動生成ツール";
+
+    /**
+     * URLパラメーターから取得したラベルに表示する値を取得
+     */
+    const label: string = searchParams.get("label") || "002-パスワード自動生成ツール";
 
     /**
      * 「パスワード作成」ボタンがクリックされたときの処理
-     * 現時点ではコンソールにメッセージを表示するだけです。
+     * 状態を更新することで、その値を参照している子コンポーネントも再描画されます。
      */
-    const handleGeneratePassword = () => {
-        console.log('パスワードを生成します。');
-        // ここに実際のパスワード生成ロジックを追加していきます。
+    const handleGeneratePassword = (): void => {
+        const newPassword: string = generatePassword();
+        console.log('生成されたパスワード:', newPassword);
+
+        setGeneratedPassword(newPassword);
     };
-
-    /**
-     * 英語のセレクトボックスの選択肢
-     */
-    const englishOptions = [
-        {value: 'lower', label: '小文字 (a-z)'},
-        {value: 'upper', label: '大文字 (A-Z)'},
-        {value: 'both', label: '両方'},
-    ];
-
-    /**
-     * 数字のセレクトボックスの選択肢
-     */
-    const numberOptions = [
-        {value: 'none', label: '含めない'},
-        {value: 'include', label: '含める (0-9)'}
-    ]
-
-    /**
-     * 記号のセレクトボックスの選択肢
-     */
-    const symbolOptions = [
-        {value: 'none', label: '含めない'},
-        {value: 'include', label: '含める (!@#$%) '}
-    ];
 
     return (
         <div className="w-full mx-auto">
@@ -52,23 +55,11 @@ export default function PassWordGenerateUI() {
 
             <br/>
 
-            <PassWordOutputLabel></PassWordOutputLabel>
+            <PassWordOutputLabel password={generatedPassword}/>
 
             <br/>
 
-            <fieldset className={'border-2 border-gray-300 rounded-md p-4'}>
-                <legend>パスワードに利用する文字列の種類を選択してください</legend>
-
-                {/* 修正したTypeSelectBoxコンポーネントを使用 */}
-                <TypeSelectBox name={'英語'} options={englishOptions}></TypeSelectBox>
-                <TypeSelectBox name={'数字'} options={numberOptions}></TypeSelectBox>
-                <TypeSelectBox name={'記号'} options={symbolOptions}></TypeSelectBox>
-
-            </fieldset>
-
-            <br/>
-
-            {/* onClickには、このコンポーネント内で定義した関数を渡します */}
+            {/* ItemButtonがクリックされたら、handleGeneratePasswordを実行する */}
             <ItemButton item={'パスワード作成'} onClick={handleGeneratePassword}></ItemButton>
         </div>
     );

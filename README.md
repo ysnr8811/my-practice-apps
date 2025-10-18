@@ -7,11 +7,7 @@
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run dev
 ```
 実行後に開く [http://localhost:3000](http://localhost:3000)
 

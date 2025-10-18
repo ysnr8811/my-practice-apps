@@ -16,7 +16,7 @@ export default function OmikujiGenerateUI() {
      */
     const [buttonText, setButtonText] = useState<string>('ボタンをクリックしてください');
 
-    const [clearButtonText, setClearButtonText] = useState<string>('クリア');
+    const [clearButtonText] = useState<string>('クリア');
 
     /**
      * ボタンがクリックされたときにおみくじの結果を生成し、stateを更新する関数
@@ -30,9 +30,9 @@ export default function OmikujiGenerateUI() {
         setButtonText('もう一度おみくじを引く');
     }
 
-    function clearOmikujiResult(): void {
-        setOmikujiResult('');
-        setButtonText('ボタンをクリックしてください');
+    function clearOmikujiResult(resultText:string, generateButtonText:string): void {
+        setOmikujiResult(resultText);
+        setButtonText(generateButtonText);
     }
 
     return (
@@ -47,7 +47,10 @@ export default function OmikujiGenerateUI() {
 
             <br/>
 
-            <ItemButton item={clearButtonText} onClick={clearOmikujiResult}></ItemButton>
+            <ItemButton
+                item={clearButtonText}
+                onClick={() => clearOmikujiResult('', 'ボタンをクリックしてください')}
+            ></ItemButton>
         </div>
     );
 

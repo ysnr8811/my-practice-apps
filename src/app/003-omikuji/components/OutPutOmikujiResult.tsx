@@ -1,5 +1,7 @@
 interface PassWordOutputLabelProps {
-    // 親から受け取る 'password' のPropsを定義
+    /**
+     * 親から受け取る 'password' のPropsを定義
+     */
     omikujiResult: string;
 }
 

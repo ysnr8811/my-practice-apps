@@ -32,7 +32,7 @@ export default function Home() {
     { label: "001-電卓アプリ", path: "/001-calc" },
     { label: "002-パスワード自動生成ツール", path: "/002-password" },
     { label: "003-おみくじアプリ", path: "/003-omikuji" },
-    { label: "004-文字数・単語数カウンター", path: "/004-counter" },
+    { label: "004-文字数カウンター", path: "/004-counter" },
     { label: "005-BMI計算ツール", path: "/005-bmi" },
     { label: "006-TODOリストアプリ", path: "/006-todo" },
     { label: "007-映画・書籍レビューサイト", path: "/007-review" },

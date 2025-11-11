@@ -11,6 +11,14 @@ bun run dev
 ```
 実行後に開く [http://localhost:3000](http://localhost:3000)
 
+# 利用しているAPI
+
+[映画](https://developer.themoviedb.org/docs/getting-started)
+
+[天気](https://openweathermap.org/api)
+
+[通貨変換](https://www.exchangerate-api.com/)
+
 ---
 # 以下は作成時の記載なので無視する
 
